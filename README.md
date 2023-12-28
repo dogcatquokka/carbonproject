@@ -1,55 +1,38 @@
-# carina 팀기록
-## 일지는 각자 내용을 작성해주세요 혹시 결석이라면 PM이 작성해주시구요.
-## 회의록은 PM이 작성해 주세요.
-## 일지는 공동으로 작성하기 때문에 sync 를 맞춰주세요.
- - 내려받고 pull  - > 수정후 add, commit, push 
-## 일지 폴더, 회의록 폴더를 만들어도 좋아요.
-server ip : 192.168.0.40
-           1521/xe
-           system/oracle
-pc/pw : 9222
-# db mysql로 변경 (oracle xe 무료버전은 용량 최대 12GB )
+# project
+팀 프로젝트 <br>
+탄소배출량 계산 및 시각화 시스템
 
-## 설치 
-`sudo apt-get install mysql-server`
-## 상태 
-`sudo systemctl status mysql`
-## root 접속, 해제 
-`mysql -u root -p --socket=/var/run/mysqld/mysqld.sock`
-`exit`
-## 디비 종료 
-`sudo systemctl stop mysql`
-## 케릭터 셋 
-`sudo xed /etc/mysql/mysql.conf.d/mysqld.cnf`
- - 위에 명령어로 나온 내용에 추가 
-  ```bash [mysqld]
-     character-set-server=utf8mb4
-     collation-server=utf8mb4_unicode_ci
-   ```
+Carina project
+	(Carbon Reduce Now)
+	
+1) 목표: 탄소 배출량 계산 및 시각화 시스템
+2) 기능:<br>
+	(1) 한국전력공사 api를 이용하여 지역별 전력 예측 모델 수립<br>
+	(2) 산림 빅데이터 거래소에서 탄소 배출량, 흡수량, 전기 가스 등의 데이터를 받아 시각화<br>
+	(3) 네이버 뉴스 api를 통해 키워드로 뉴스를 검색하고 매일 새롭게 업데이트하는 기능 수립<br>
+	(4) 사용자에게 전기 가스 수도 등의 데이터를 받아 탄소 배출량을 알려주고 솔루션을 제시<br>
+	(5) 실천 게시판, 자유게시판, 로그인 회원가입<br>
+3) 역할 및 팀 기여도
+      (팀 기여도 50%)
+4) 기술환경<br>
+사용언어: JAVA, JSP, HTML/CSS/JS, MYSQL, Python<br>
+프레임워크/라이브러리: Spring, Bootstrap, pandas, mybatis,IDE & Code Editors,Eclipse, Pycharm, STS <br>
+데이터베이스: OracleDB,Mysql<br>
+API: 한국전력공사 api, kakao login api, 다음 주소찾기 api, 네이버 뉴스 api<br>
+서버:Apache Tomcat<br>
 
-## 재시작 
-`sudo systemctl restart mysql`
+| 분류                  | 사용 도구                     |
+|-----------------------|------------------------------|
+| **언어**              | JAVA, JSP, HTML/CSS/JS, Python |
+| **프레임워크/라이브러리** | Spring, Bootstrap, pandas, mybatis,IDE & Code Editors, Eclipse, Pycharm, STS   |
+| **데이터베이스**      | OracleDB, MySQL               |
+| **API**               | 한국전력공사 API, Kakao Login API, 다음 주소찾기 API, 네이버 뉴스 API |
+| **서버**              | Apache Tomcat                 |
 
-## 계정생성 
-`CREATE USER 'care'@'localhost' IDENTIFIED BY 'care';`
+# 기능설명
+<h3>1.탄소시각화<h3>
 
-## 접속
- `USE care;`
-
-# 다른곳에서 접속가능하도록 
-`sudo xed /etc/mysql/mysql.conf.d/mysqld.cnf`
-- mysqld.cnf 파일 내용수정
-  bind-address = 0.0.0.0
- `sudo systemctl restart mysql`
-
-## 계정에 외부접근 가능하도록 
-`GRANT ALL PRIVILEGES ON mydatabase.* TO 'care'@'%';`
-`FLUSH PRIVILEGES;`
-
-## 계정으로 접속 
-`mysql -u care -p --socket=/var/run/mysqld/mysqld.sock`
-
-## db생성 
-`CREATE DATABASE caredb;`
-
-## 테이블 생성 동일함 
+<h3>2.환경mbti<h3>
+<h3>3.전력예측<h3>
+<h3>4.탄소시뮬레이터<h3>
+<h3>5.뉴스,게시판<h3>
